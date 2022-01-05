@@ -5,7 +5,6 @@ import java.util.concurrent.TimeUnit;
 import javax.swing.*;
 
 public class TicTacToe implements ActionListener{
-
     Random random = new Random();
     JFrame frame = new JFrame();
     JPanel title_panel = new JPanel();
@@ -46,6 +45,7 @@ public class TicTacToe implements ActionListener{
             buttons[i].setFont(new Font("Verdana", Font.BOLD, 120));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
+            buttons[i].setEnabled(false);
         }
 
         // adding text and panel to frame
@@ -53,7 +53,12 @@ public class TicTacToe implements ActionListener{
         frame.add(title_panel, BorderLayout.NORTH);
         frame.add(button_panel);
 
-        try {TimeUnit.SECONDS.sleep(2);} catch (InterruptedException e) {};
+        try {
+
+            TimeUnit.SECONDS.sleep(2);
+        } catch (InterruptedException e) {
+            System.out.println("Interrupted Exception");
+        };
         firstTurn();
     }
 
@@ -84,6 +89,7 @@ public class TicTacToe implements ActionListener{
     }
 
     public void firstTurn() {
+        buttons[i].setEnabled(true);
         if (random.nextInt(2) == 0) {
             player1_turn = true;
             textfield.setText("X's turn");
