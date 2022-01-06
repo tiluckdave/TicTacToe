@@ -12,6 +12,7 @@ public class TicTacToe implements ActionListener{
     JLabel textfield = new JLabel();
     JButton[] buttons = new JButton[9];
     boolean player1_turn;
+    int count = 1;
 
     TicTacToe() {
         // frame settings
@@ -45,7 +46,6 @@ public class TicTacToe implements ActionListener{
             buttons[i].setFont(new Font("Verdana", Font.BOLD, 120));
             buttons[i].setFocusable(false);
             buttons[i].addActionListener(this);
-            buttons[i].setEnabled(false);
         }
 
         // adding text and panel to frame
@@ -54,7 +54,6 @@ public class TicTacToe implements ActionListener{
         frame.add(button_panel);
 
         try {
-
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
             System.out.println("Interrupted Exception");
@@ -89,7 +88,6 @@ public class TicTacToe implements ActionListener{
     }
 
     public void firstTurn() {
-        buttons[i].setEnabled(true);
         if (random.nextInt(2) == 0) {
             player1_turn = true;
             textfield.setText("X's turn");
@@ -151,6 +149,22 @@ public class TicTacToe implements ActionListener{
         }
         if ((buttons[2]).getText() == "O" && (buttons[4]).getText() == "O" && (buttons[6]).getText() == "O") {
             oWins(2,4,6);
+        }
+
+        for (int i = 0 ; i<9; i++) {
+            if (!buttons[i].getText().equals("")) {
+                count++;
+                if ((i+1)!=count){
+                    count=0;
+                    break;
+                }
+            }
+        }
+        if (count == 9){
+            textfield.setText("Draw");
+            for (int i = 0 ; i<9; i++) {
+                buttons[i].setEnabled(false);
+            }
         }
     }
 
