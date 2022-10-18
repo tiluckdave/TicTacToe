@@ -25,7 +25,7 @@ public class TicTacToe implements ActionListener{
         // text field setup
         textfield.setBackground(new Color(25,25,25));
         textfield.setForeground(new Color(200,200,200));
-        textfield.setFont(new Font("Verdana", Font.BOLD,65));
+        textfield.setFont(new Font("Monospaced", Font.ITALIC,65));
         textfield.setHorizontalAlignment(JLabel.CENTER);
         textfield.setText("Tic-Tac-Toe");
         textfield.setOpaque(true);
@@ -175,7 +175,7 @@ public class TicTacToe implements ActionListener{
         for (int i = 0 ; i<9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfield.setText("X Wins");
+        textfield.setText("Winner is X");
     }
 
     public void oWins(int a, int b, int c) {
@@ -185,6 +185,6 @@ public class TicTacToe implements ActionListener{
         for (int i = 0 ; i<9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfield.setText("O Wins");
+        textfield.setText("Winner is O");
     }
 }
