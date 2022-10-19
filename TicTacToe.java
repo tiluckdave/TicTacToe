@@ -56,7 +56,8 @@ public class TicTacToe implements ActionListener{
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
-            System.out.println("Interrupted Exception");
+            e.printStackTrace();
+            //System.out.println("Interrupted Exception");
         };
         firstTurn();
     }
@@ -175,7 +176,7 @@ public class TicTacToe implements ActionListener{
         for (int i = 0 ; i<9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfield.setText("Winner is X");
+        textfield.setText("Congratulations!!Winner is X");
     }
 
     public void oWins(int a, int b, int c) {
@@ -185,6 +186,6 @@ public class TicTacToe implements ActionListener{
         for (int i = 0 ; i<9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfield.setText("Winner is O");
+        textfield.setText("Congratulations!!Winner is O");
     }
 }
