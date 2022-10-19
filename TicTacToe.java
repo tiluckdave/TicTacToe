@@ -175,7 +175,7 @@ public class TicTacToe implements ActionListener{
         for (int i = 0 ; i<9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfield.setText("Winner is X");
+        textfield.setText("Congrats..!! X is Winner.");
     }
 
     public void oWins(int a, int b, int c) {
@@ -185,6 +185,6 @@ public class TicTacToe implements ActionListener{
         for (int i = 0 ; i<9; i++) {
             buttons[i].setEnabled(false);
         }
-        textfield.setText("Winner is O");
+        textfield.setText("Congrats..!! O is Winner.");
     }
 }
